@@ -1,0 +1,13 @@
+.shape_item {
+  position: absolute;
+}
+
+@keyframes show {
+  from {
+    opacity: 0
+  }
+
+  to {
+    opacity: 1
+  }
+}
