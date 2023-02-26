@@ -1,6 +1,5 @@
-import { Module } from "../core/module";
-import { random, getRandomColor } from "../utils";
-import "./shapes.css";
+import { Module } from '../core/module';
+import { random, getRandomColor } from '../utils';
 
 export class ShapesModule extends Module {
   constructor(type, text) {
@@ -17,8 +16,8 @@ export class ShapesModule extends Module {
     const randomShapeHeight = random(minShapeSize, maxShapeHeight);
     const randomShapeWidth = random(minShapeSize, maxShapeWidth);
 
-    const randomShapeHTML = document.createElement("div");
-    randomShapeHTML.className = `shape_item`;
+    const randomShapeHTML = document.createElement('div');
+    randomShapeHTML.className = `shape-shapeitem`;
     randomShapeHTML.style.width = `${randomShapeWidth}px`;
     randomShapeHTML.style.height = `${randomShapeHeight}px`;
     randomShapeHTML.style.backgroundColor = getRandomColor();

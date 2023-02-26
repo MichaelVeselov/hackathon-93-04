@@ -1,6 +1,10 @@
 import { Menu } from './core/menu';
 import { BackgroundModule } from './modules/background.module';
 import { SoundModule } from './modules/sound.module';
+import { VideoModule } from './modules/video.module';
+import { ShapesModule } from './modules/shape.module';
+import { MessageModule } from './modules/message.module';
+import { ClicksModule } from './modules/clicks.module';
 
 export class ContextMenu extends Menu {
   #menu;
@@ -16,6 +20,10 @@ export class ContextMenu extends Menu {
     this.#modules = {
       background: new BackgroundModule('background', 'change background color'),
       sound: new SoundModule('sound', 'play random sound'),
+      video: new VideoModule('video', 'play video stream'),
+      shape: new ShapesModule('shape', 'draw a shape'),
+      message: new MessageModule('message', 'show new message'),
+      clicks: new ClicksModule('clicks', 'start click counter'),
     };
   }
 
@@ -83,8 +91,15 @@ export class ContextMenu extends Menu {
 
     this.#menu.addEventListener('click', (event) => {
       event.preventDefault();
+
+      for (let i = 0; i < this.#scope.childNodes.length; i++) {
+        if (!this.#scope.childNodes[i].classList?.contains('menu')) {
+          this.#scope.childNodes[i].remove();
+        }
+      }
       const moduleType = event.target.getAttribute('data-type');
       this.#modules[moduleType].trigger();
       this.close();
     });
   }
+}
