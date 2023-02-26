@@ -93,7 +93,10 @@ export class ContextMenu extends Menu {
       event.preventDefault();
 
       for (let i = 0; i < this.#scope.childNodes.length; i++) {
-        if (!this.#scope.childNodes[i].classList?.contains('menu')) {
+        if (
+          !this.#scope.childNodes[i].classList?.contains('menu') &&
+          !this.#scope.childNodes[i].classList?.contains('menu-title')
+        ) {
           this.#scope.childNodes[i].remove();
         }
       }

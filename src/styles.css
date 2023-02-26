@@ -16,6 +16,12 @@ body {
   overflow: hidden;
 }
 
+/* Menu title */
+
+.menu-title {
+  text-align: right;
+}
+
 /* Context menu  */
 
 .menu {
